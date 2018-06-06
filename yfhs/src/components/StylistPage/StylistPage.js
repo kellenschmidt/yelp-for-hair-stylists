@@ -20,13 +20,13 @@ class StylistPage extends Component {
     const { stylistName, stylistRatings } = this.props;
 
     return (
-      <div className="StylistPage">
-        <h1 className="StylistName display-1">{ stylistName }</h1>
-        <h3 className="StylistRating">Overall Rating: 
+      <div id="StylistPage">
+        <h1 id="StylistName" className="display-1">{ stylistName }</h1>
+        <h3 id="StylistRating">Overall Rating: 
           <h5 className="display-4">{ this.overall_score(stylistRatings) }</h5>
         </h3>
 
-        <h3 className="UserRatingsTitle display-3">User Ratings</h3>
+        <h3 id="UserRatingsTitle" className="display-3">User Ratings</h3>
         <div>
         </div>
       </div>

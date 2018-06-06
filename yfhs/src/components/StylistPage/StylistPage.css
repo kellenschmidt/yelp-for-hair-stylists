@@ -1,12 +1,12 @@
-.StylistName {
+#StylistName {
   text-align: center;
 }
 
-.StylistRating {
+#StylistRating {
   position: relative;
   left: 30px;
 }
 
-.UserRatingsTitle {
+#UserRatingsTitle {
   text-align: center;
 }
