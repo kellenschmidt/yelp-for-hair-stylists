@@ -4,6 +4,14 @@ import './App.css';
 import StylistPage from './StylistPage/StylistPage';
 
 class App extends Component {
+  sampleReviews = [
+    { overall_score: 1 },
+    { overall_score: 2 },
+    { overall_score: 3 },
+    { overall_score: 4 },
+    { overall_score: 5 }
+  ];
+
   render() {
     /*
     return (
@@ -19,7 +27,7 @@ class App extends Component {
     );
     */
     return(
-      <StylistPage stylistName="Placeholder Name" stylistRating="6.9"/>
+      <StylistPage stylistName="Placeholder Name" stylistRatings={ this.sampleReviews }/>
     );
   }
 }
