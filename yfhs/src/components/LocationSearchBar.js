@@ -19,17 +19,19 @@ class LocationSearchBar extends Component {
         this.setState({ address })
     }
 
-    handleSelect = (address) => {
-        geocodeByAddress(address)
-          .then(results => getLatLng(results[0]))
+
+    handleSelect = selected => {
+        this.setState({ address: selected });
+        geocodeByAddress(selected)
+          .then(res => getLatLng(res[0]))
           .then(latLng => {
-                console.log('Success', latLng)
-                this.props.onNewLocation(latLng)
-          })
-          .catch(error => console.error('Error', error))
-        
-        
-    }
+            console.log('Success', latLng)
+            this.props.onNewLocation(latLng)
+      })
+          .catch(error => {
+            console.log('error', error); // eslint-disable-line no-console
+          });
+      };
 
     render() {
         return (
