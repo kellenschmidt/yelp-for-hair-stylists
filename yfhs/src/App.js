@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import StylistPage from './StylistPage/StylistPage';
+import StylistPage from './components/StylistPage/StylistPage';
+import HairStylist from './components/HairStylist/HairStylist';
 
 class App extends Component {
   sampleReviews = [
@@ -11,6 +12,22 @@ class App extends Component {
     { overall_score: 4 },
     { overall_score: 5 }
   ];
+
+  hairStylists = [
+    {
+      overallScore: 3,
+      name: "no hope"
+    },
+    {
+      overallScore: 3,
+      name: "no hope"
+    },
+    {
+      overallScore: 3,
+      name: "no hope"
+    }
+  ];
+
 
   render() {
     /*
@@ -26,8 +43,24 @@ class App extends Component {
       </div>
     );
     */
+
+    /*
     return(
       <StylistPage stylistName="Placeholder Name" stylistRatings={ this.sampleReviews }/>
+    );
+    */
+
+    return (
+      <div>
+       {
+          this.hairStylists.map( hairStylist => (
+            <HairStylist
+              overallScore={ hairStylist.overall_score }
+              stylistName={ hairStylist.name }
+            />
+          ))
+       }
+       </div>
     );
   }
 }
