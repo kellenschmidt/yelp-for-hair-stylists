@@ -15,15 +15,15 @@ class App extends Component {
 
   hairStylists = [
     {
-      overallScore: 3,
+      overall_score: 1,
       name: "no hope"
     },
     {
-      overallScore: 3,
+      overall_score: 2,
       name: "no hope"
     },
     {
-      overallScore: 3,
+      overall_score: 3,
       name: "no hope"
     }
   ];

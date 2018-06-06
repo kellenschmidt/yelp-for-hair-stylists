@@ -20,7 +20,7 @@ class HairStylist extends Component {
               { stylistName }
             </span>
             <span className="display-3 float-right mr-4">
-              3
+              { overallScore }
             </span>
           </CardContent>
         </Card>
