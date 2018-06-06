@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import StylistPage from './StylistPage/StylistPage';
 
 class App extends Component {
   render() {
+    /*
     return (
       <div className="App">
         <header className="App-header">
@@ -14,6 +16,10 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
+    );
+    */
+    return(
+      <StylistPage stylistName="Placeholder Name" stylistRating="6.9"/>
     );
   }
 }
