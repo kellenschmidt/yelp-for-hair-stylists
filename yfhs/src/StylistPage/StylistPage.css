@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.StylistRating {
+  position: relative;
+  left: 30px;
+}
+
 .UserRatingsTitle {
   text-align: center;
 }
