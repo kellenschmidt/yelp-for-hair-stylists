@@ -1,5 +1,6 @@
 import React, { Component }  from "react";
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 import './StylistPage.css';
 
@@ -21,12 +22,9 @@ class StylistPage extends Component {
 
     return (
       <div id="StylistPage">
-        <h1 id="StylistName" className="display-1">{ stylistName }</h1>
-        <h3 id="StylistRating">Overall Rating: 
-          <h5 className="display-4">{ this.overall_score(stylistRatings) }</h5>
-        </h3>
-
-        <h3 id="UserRatingsTitle" className="display-3">User Ratings</h3>
+        <h5 id="StylistName" className="display-5">Details for { stylistName }:</h5>
+        <Typography>Overall Rating: {this.overall_score(stylistRatings)}</Typography>
+        <h8 id="UserRatingsTitle" className="display-8">User Ratings</h8>
         <div>
         </div>
       </div>
