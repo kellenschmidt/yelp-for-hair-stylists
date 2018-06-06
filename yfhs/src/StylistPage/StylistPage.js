@@ -6,17 +6,10 @@ import './StylistPage.css';
 class StylistPage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      stylistName: "Placeholder name",
-      stylistPhoto: null,
-      stylistRating: 5
-    };
-
   }
 
   render() {
-    const { stylistName, stylistPhoto, stylistRating } = this.props;
+    const { stylistName, stylistRating } = this.props;
 
     return (
       <div className="StylistPage">
