@@ -44,9 +44,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MapView />
-        <HairStylists />
-        <CreateReview />
+        <div>
+          <MapView />
+
+        </div>
+        {/* <HairStylists />
+        <CreateReview /> */}
       </div>
     );
   }
