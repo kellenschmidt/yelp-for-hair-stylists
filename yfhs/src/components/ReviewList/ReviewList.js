@@ -132,6 +132,7 @@ class ReviewList extends Component {
                 gender={review.gender}
                 age={review.age}
                 style={review.style}
+                conversation={review.conversation}
                 key={review.description}
               />
             ))

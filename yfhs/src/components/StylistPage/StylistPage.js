@@ -12,7 +12,8 @@ class StylistPage extends Component {
       overall_score: "1.8",
       style: 0,
       gender: 0,
-      age: "14"
+      age: "14",
+      conversation: 0
     },
     {
       title: "Super Great Haircut",
@@ -20,7 +21,8 @@ class StylistPage extends Component {
       overall_score: "2.8",
       style: 1,
       gender: 1,
-      age: "21"
+      age: "21",
+      conversation: 1
     },
     {
       title: "Super Great Haircut",
@@ -28,7 +30,8 @@ class StylistPage extends Component {
       overall_score: "3.8",
       style: 2,
       gender: 1,
-      age: "40"
+      age: "40",
+      conversation: 2
     },
     {
       title: "Super Great Haircut",
@@ -36,7 +39,8 @@ class StylistPage extends Component {
       overall_score: "4.8",
       style: 3,
       gender: 0,
-      age: "60"
+      age: "60",
+      conversation: 3
     },
   ];
 

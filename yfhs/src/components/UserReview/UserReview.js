@@ -15,7 +15,7 @@ class UserReview extends Component {
     }
   }
 
-  getStyle = (styleNum) => {
+  getStyleText = (styleNum) => {
     switch (styleNum){
 
       case 0:
@@ -36,8 +36,29 @@ class UserReview extends Component {
     }
   }
 
+  getConversationText = (conversationNum) => {
+    switch (conversationNum){
+
+      case 0:
+        return "Not much of a talker";
+
+      case 1:
+        return "Slightly talkative";
+
+      case 2:
+        return "Can hold a conversation";
+
+      case 3:
+        return "Pleasant to talk to";
+
+      case 4:
+        return "Extremely talkative";
+
+    }
+  }
+
   render() {
-    const { title, description, totalScore, gender, age, style } = this.props;
+    const { title, description, totalScore, gender, age, style, conversation } = this.props;
 
     return (
       <div>
@@ -50,7 +71,13 @@ class UserReview extends Component {
               {title}
             </Typography>
             <Typography color="textSecondary">
-              {this.getGenderText(gender)}, {age}, {this.getStyle(style)}
+              {this.getGenderText(gender)}, {age}
+            </Typography>
+            <Typography color="textSecondary">
+              Style: {this.getStyleText(style)}
+            </Typography>
+            <Typography color="textSecondary">
+              Conversationalist? {this.getConversationText(conversation)}
             </Typography>
             <Typography component="p">
               {description}
