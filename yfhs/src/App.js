@@ -56,20 +56,6 @@ class App extends Component {
   ];
 
   render() {
-    /*
-    return (
-      <ReviewList
-        reviews={this.reviews}
-      />
-    );
-    */
-
-    /*
-    return(
-      <StylistPage stylistName="Placeholder Name" stylistRatings={ this.sampleReviews }/>
-    );
-    */
-
     return (
       <div>
        {
