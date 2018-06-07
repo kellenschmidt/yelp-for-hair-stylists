@@ -10,7 +10,7 @@ import StylistPage from '../StylistPage/StylistPage';
 
 class HairStylists extends Component {
 
-  
+
   sampleReviews = [
     { overall_score: 1 },
     { overall_score: 2 },
@@ -20,39 +20,40 @@ class HairStylists extends Component {
   ];
 
 
-    
+
 
   state = {
     hairStylists: this.props.hairStylists,
-    reviews: Array.apply(null, Array(this.props.hairStylists.length)).map(Object.prototype.valueOf,{})
+    reviews: Array.apply(null, Array(this.props.hairStylists.length)).map(Object.prototype.valueOf, {})
   };
 
 
   handleChange = id => (event) => {
-    
+
     //no data
-    if(this.state.reviews[this.state.hairStylists.findIndex[x => x.id === id]] !== {}) {
+    if (this.state.reviews[this.state.hairStylists.findIndex[x => x.id === id]] !== {}) {
       //http request to server using id
       //show loading
 
-      axios.get('127.0.0.1:8000/worker/'+id,{
-	params: {
-		format: "json"
-	}	
-})
-      .then(response => {
-        var temp = this.state.reviews
-        temp[this.state.hairStylists.findIndex[x => x.id === id]] = response
-        this.setState({
-          reviews: temp
-        })
+      axios.get('127.0.0.1:8000/worker/' + id, {
+        params: {
+          format: "json"
+        }
       })
+        .then(response => {
+          console.log(response)
+          var temp = this.state.reviews
+          temp[this.state.hairStylists.findIndex[x => x.id === id]] = response
+          this.setState({
+            reviews: temp
+          })
+        })
       console.log(id)
-      
+
     }
     //there is data
     else {
-      
+      console.log("already exists")
       //do nothing
     }
   }
@@ -73,7 +74,7 @@ class HairStylists extends Component {
                 <span className="h2 ml-auto">
                   {hairStylist.overall_score}/5
                   <StarIcon></StarIcon>
-              	</span>
+                </span>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <StylistPage
@@ -84,8 +85,8 @@ class HairStylists extends Component {
             </ExpansionPanel>
           ))
         }
-        
-        
+
+
       </div>
     );
   }
