@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import MapView from './components/MapView';
 import HairStylists from './components/HairStylists/HairStylists';
 
 class App extends Component {
@@ -39,10 +40,11 @@ class App extends Component {
   ];
 
   render() {
-    return (
+    return {
       <div>
+        <MapView />
         <HairStylists/>
-       </div>
+      </div>
     );
   }
 }
