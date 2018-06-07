@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import './App.css';
-import MapView from './components/MapView';
-import HairStylists from './components/HairStylists/HairStylists';
+import React, { Component }  from "react";
 
-class App extends Component {
+import './StylistPage.css';
+import ReviewList from '../ReviewList/ReviewList';
+
+class StylistPage extends Component {
+
   reviews = [
     {
       title: "Super Great Haircut",
@@ -39,14 +40,28 @@ class App extends Component {
     },
   ];
 
+  overall_score = (userReviews) => {
+    let avgScore = 0;
+    for (let review of userReviews) {
+      avgScore += review.overall_score;
+    }
+    return avgScore / userReviews.length;
+  };
+
   render() {
-    return {
-      <div>
-        <MapView />
-        <HairStylists/>
+    const { stylistName } = this.props;
+
+    return (
+      <div id="StylistPage">
+        <h5 id="StylistName" className="display-5">Reviews for { stylistName }:</h5>
+        <ReviewList
+          reviews={ this.reviews }
+        />
       </div>
     );
+
   }
+
 }
 
-export default App;
+export default StylistPage;
