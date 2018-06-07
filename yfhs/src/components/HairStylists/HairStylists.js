@@ -34,7 +34,7 @@ class HairStylists extends Component {
     if(this.state.reviews[this.state.hairStylists.findIndex[x => x.id === id]] !== {}) {
       //http request to server using id
       //show loading
-      axios.get('52.32.98.186:8081/worker/workers/'+id)
+      axios.get('52.32.98.186:8081/worker/'+id)
       .then(response => {
         var temp = this.state.reviews
         temp[this.state.hairStylists.findIndex[x => x.id === id]] = response

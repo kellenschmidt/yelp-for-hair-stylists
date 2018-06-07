@@ -69,9 +69,7 @@ class MapView extends Component {
     //     return newArray;
     // }
 
-    onMarkerClick(props, marker, e) {
-        console.log(props.name)
-    }
+    
 
     handleNewLocation = (latLng) => {
 
@@ -90,6 +88,7 @@ class MapView extends Component {
             }
         })
             .then(response => {
+                console.log(response.data.businesses)
                 this.setState({
                     latitude: latLng.lat,
                     longitude: latLng.lng
@@ -111,51 +110,61 @@ class MapView extends Component {
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[0].coordinates.latitude, lng:response.data.businesses[0].coordinates.longitude}}
                 name={response.data.businesses[0].name}
+                id={response.data.businesses[0].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[1].coordinates.latitude, lng:response.data.businesses[1].coordinates.longitude}}
                 name={response.data.businesses[1].name}
+                id={response.data.businesses[1].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[2].coordinates.latitude, lng:response.data.businesses[2].coordinates.longitude}}
                 name={response.data.businesses[2].name}
+                id={response.data.businesses[2].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[3].coordinates.latitude, lng:response.data.businesses[3].coordinates.longitude}}
                 name={response.data.businesses[3].name}
+                id={response.data.businesses[3].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[4].coordinates.latitude, lng:response.data.businesses[4].coordinates.longitude}}
                 name={response.data.businesses[4].name}
+                id={response.data.businesses[4].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[5].coordinates.latitude, lng:response.data.businesses[5].coordinates.longitude}}
                 name={response.data.businesses[5].name}
+                id={response.data.businesses[5].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[6].coordinates.latitude, lng:response.data.businesses[6].coordinates.longitude}}
                 name={response.data.businesses[6].name}
+                id={response.data.businesses[6].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[7].coordinates.latitude, lng:response.data.businesses[7].coordinates.longitude}}
                 name={response.data.businesses[7].name}
+                id={response.data.businesses[7].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[8].coordinates.latitude, lng:response.data.businesses[8].coordinates.longitude}}
                 name={response.data.businesses[8].name}
+                id={response.data.businesses[8].id}
                 />
                 <Marker
                 onClick={this.onMarkerClick}
                 position={{lat:response.data.businesses[9].coordinates.latitude, lng:response.data.businesses[9].coordinates.longitude}}
                 name={response.data.businesses[9].name}
+                id={response.data.businesses[9].id}
                 />
                 
                 {/* { response.data.businesses.map(business => {
