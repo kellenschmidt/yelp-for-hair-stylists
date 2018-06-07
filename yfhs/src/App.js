@@ -51,7 +51,7 @@ class App extends Component {
           
 
         </div>
-        <AddStylist />
+        {/* <AddStylist /> */}
         {/* <CreateReview /> */}
       </div>
     );
