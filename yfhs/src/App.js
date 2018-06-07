@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MapView from './components/MapView';
 import HairStylists from './components/HairStylists/HairStylists';
+import CreateReview from './components/CreateReview/CreateReview';
 
 class App extends Component {
   reviews = [
@@ -43,7 +44,8 @@ class App extends Component {
     return (
       <div>
         <MapView />
-        <HairStylists/>
+        <HairStylists />
+        <CreateReview />
       </div>
     );
   }
