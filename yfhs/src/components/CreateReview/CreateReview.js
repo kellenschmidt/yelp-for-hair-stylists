@@ -22,6 +22,7 @@ class CreateReview extends Component {
       age: "",
       style: "",
       overall_score: "",
+      cost: 0,
       conversation: "",
     }
   }
