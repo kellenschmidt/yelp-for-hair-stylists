@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LocationSearchBar from './LocationSearchBar';
-import MapContainer from './MapContainer';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
 
 class MapView extends Component {
@@ -10,8 +10,67 @@ class MapView extends Component {
         this.state = {
             latitude: null,
             longitude: null,
-            markers: []
+            map: <Map google={this.props.google} zoom={13}/>
         }
+    }
+
+    // componentDidMount() {
+    //     axios.get('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search', {
+    //         params: {
+    //             latitude: '' + latLng.lat,
+    //             longitude: '' + latLng.lng,
+    //             term: 'salon'
+    //         },
+    //         headers: {
+    //             'Authorization': 'bearer _3Y5d_7F2sHNZ6h9fptyc9-pTHFIo6mXI1WT0YsDTpFEjCcaT17_TF13oRGlaLuL10o3SNWUqlgTG3OJGrqsA1kkrCuvzgHWLw9IyWavlfDI3NiOnedfwTJaq_gXW3Yx',
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'Access-Control-Allow-Headers': '*',
+    //             'Access-Control-Allow-Origin': 'http://localhost:3000'
+    //         }
+    //     })
+    //         .then(response => {
+    //             console.log(response.data.businesses)
+
+    //             let temp =  <Map google={this.props.google} zoom={3}
+    //                 center={{
+    //                     lat: this.props.lat,
+    //                     lng: this.props.lng
+    //                 }}
+    //             >
+                
+    //             { response.data.businesses.map(business => {
+    //                 <Marker
+    //                     position={{lat: business.coordinates.latitude, lng: business.coordinates.longitude}}
+    //                 />
+    //             })
+    //             }   
+                    
+    //             </Map>
+
+    //             this.setState({
+    //                 latitude: latLng.lat,
+    //                 longitude: latLng.lng
+    //             })
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         })
+    // }
+
+    // createMarkers = (businesses) => {
+    //     var newArray = [];
+    //     console.log(businesses);
+    //     businesses.forEach((value, i) => (
+    //         <Marker
+    //             position={{lat:businesses[i].coordinates.latitude, lng:businesses[i].coordinates.longitude}}
+    //         />
+    //     ));
+    //     return newArray;
+    // }
+
+    onMarkerClick(props, marker, e) {
+        console.log(props.name)
     }
 
     handleNewLocation = (latLng) => {
@@ -20,7 +79,7 @@ class MapView extends Component {
             params: {
                 latitude: '' + latLng.lat,
                 longitude: '' + latLng.lng,
-                term: 'salon'
+                term: 'haircuts'
             },
             headers: {
                 'Authorization': 'bearer _3Y5d_7F2sHNZ6h9fptyc9-pTHFIo6mXI1WT0YsDTpFEjCcaT17_TF13oRGlaLuL10o3SNWUqlgTG3OJGrqsA1kkrCuvzgHWLw9IyWavlfDI3NiOnedfwTJaq_gXW3Yx',
@@ -31,10 +90,87 @@ class MapView extends Component {
             }
         })
             .then(response => {
-                console.log(response.data.businesses)
                 this.setState({
                     latitude: latLng.lat,
                     longitude: latLng.lng
+                })
+
+                let temp = (
+                <Map google={this.props.google} zoom={13}
+                    center={{
+                        lat: latLng.lat,
+                        lng: latLng.lng
+                    }}
+                >
+
+                {/* {
+                    this.createMarkers(response.data.businesses)
+                } */}
+
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[0].coordinates.latitude, lng:response.data.businesses[0].coordinates.longitude}}
+                name={response.data.businesses[0].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[1].coordinates.latitude, lng:response.data.businesses[1].coordinates.longitude}}
+                name={response.data.businesses[1].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[2].coordinates.latitude, lng:response.data.businesses[2].coordinates.longitude}}
+                name={response.data.businesses[2].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[3].coordinates.latitude, lng:response.data.businesses[3].coordinates.longitude}}
+                name={response.data.businesses[3].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[4].coordinates.latitude, lng:response.data.businesses[4].coordinates.longitude}}
+                name={response.data.businesses[4].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[5].coordinates.latitude, lng:response.data.businesses[5].coordinates.longitude}}
+                name={response.data.businesses[5].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[6].coordinates.latitude, lng:response.data.businesses[6].coordinates.longitude}}
+                name={response.data.businesses[6].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[7].coordinates.latitude, lng:response.data.businesses[7].coordinates.longitude}}
+                name={response.data.businesses[7].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[8].coordinates.latitude, lng:response.data.businesses[8].coordinates.longitude}}
+                name={response.data.businesses[8].name}
+                />
+                <Marker
+                onClick={this.onMarkerClick}
+                position={{lat:response.data.businesses[9].coordinates.latitude, lng:response.data.businesses[9].coordinates.longitude}}
+                name={response.data.businesses[9].name}
+                />
+                
+                {/* { response.data.businesses.map(business => {
+                    <Marker
+                        position={{lat: business.coordinates.latitude, lng: business.coordinates.longitude}}
+                    />
+                })
+                } */}
+                </Map> 
+                );
+
+                this.setState({
+                    latitude: latLng.lat,
+                    longitude: latLng.lng,
+                    map: temp
                 })
             })
             .catch(function (error) {
@@ -49,14 +185,16 @@ class MapView extends Component {
                 <LocationSearchBar
                     onNewLocation={this.handleNewLocation}
                 />
-                <MapContainer
-                    lat = {this.state.latitude}
-                    lng = {this.state.longitude}
-                />
+
+                { this.state.map }
+                
+
             </div>
         )
     }
 }
 
-export default MapView;
+export default GoogleApiWrapper({
+    apiKey: ('AIzaSyBQCra9IG3GXJkcGNiuFWWuQpCQ9ul8c5Y&')
+  })(MapView)
 
