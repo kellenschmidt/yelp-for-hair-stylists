@@ -39,7 +39,6 @@ class MapView extends Component {
             .then(response => {
                 console.log(response.data.businesses)
                 this.setState({
-                    markers: response.data.businesses,
                     latitude: latLng.lat,
                     longitude: latLng.lng
                 })
@@ -59,7 +58,6 @@ class MapView extends Component {
                 <MapContainer
                     lat = {this.state.latitude}
                     lng = {this.state.longitude}
-                    markers = {this.state.markers}
                 />
             </div>
         )
