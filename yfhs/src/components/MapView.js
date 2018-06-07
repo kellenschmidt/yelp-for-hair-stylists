@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import LocationSearchBar from './LocationSearchBar';
 import MapContainer from './MapContainer';
 import axios from 'axios';
-import $ from 'jquery';
-
-
-
-
-
 
 class MapView extends Component {
 
