@@ -11,13 +11,17 @@ class App extends Component {
     hairStylists: []
   }
 
-  onMarkerClick(props, marker, e){
+  onMarkerClick = (props, marker, e) => {
     console.log(props.name)
-    axios.get('52.32.98.186:8081/store/'+ props.id)
+    axios.get('http://127.0.0.1:8000/store/'+ props.id+'/', {
+	params:{
+		format: "json"
+	}
+})
     .then(response => {
-
+	console.log(response)
         this.setState({ 
-          hairStylists: response
+          hairStylists: response.data
           // hairStylists: [
           //   {
           //     name: "Samuel L Jackson",
@@ -32,7 +36,10 @@ class App extends Component {
           //     id: "3"
             //  }]
             })
-  })
+	  })
+	.catch(error => {
+console.log(error)
+})
 
 }
 
