@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import LocationSearchBar from './LocationSearchBar';
+import MapContainer from './MapContainer';
 import axios from 'axios';
 import $ from 'jquery';
+
+
+
 
 
 
@@ -16,8 +19,6 @@ class MapView extends Component {
             markers: []
         }
     }
-
-    
 
     handleNewLocation = (latLng) => {
 
@@ -35,17 +36,17 @@ class MapView extends Component {
                 'Access-Control-Allow-Origin': 'http://localhost:3000'
             }
         })
-        .then(response => {
-            console.log(response.data.businesses)
-            this.setState({
-                markers: response.data.businesses,
-                latitude: latLng.lat,
-                longitude: latLng.lng
+            .then(response => {
+                console.log(response.data.businesses)
+                this.setState({
+                    markers: response.data.businesses,
+                    latitude: latLng.lat,
+                    longitude: latLng.lng
+                })
             })
-        })
-        .catch(function(error) {
-            console.log(error)
-        })
+            .catch(function (error) {
+                console.log(error)
+            })
 
     }
 
@@ -55,31 +56,15 @@ class MapView extends Component {
                 <LocationSearchBar
                     onNewLocation={this.handleNewLocation}
                 />
-                <Map
-                    google={this.props.google}
-                    zoom={14}
-                    center={{
-                        lat: this.state.latitude,
-                        lng: this.state.longitude
-                    }}
-                
-                    >
-                    {
-                        this.state.markers.map(business => {
-                            <Marker
-                                position = {{lat:business.coordinates.latitude, lng: business.coordinates.longitude}}
-                            />
-                        })
-                    }
-
-                </Map>
-
-
+                <MapContainer
+                    lat = {this.state.latitude}
+                    lng = {this.state.longitude}
+                    markers = {this.state.markers}
+                />
             </div>
         )
     }
-
 }
-export default GoogleApiWrapper({
-    apiKey: ('AIzaSyDuSFn8w1Z_lyKoahRq_e2NDl_te_xzZMI')
-})(MapView)
+
+export default MapView;
+
