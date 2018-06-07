@@ -1,25 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import StylistPage from './components/StylistPage/StylistPage';
-import HairStylist from './components/HairStylist/HairStylist';
-import CreateReview from './components/CreateReview/CreateReview';
-import ReviewList from './components/ReviewList/ReviewList';
+import HairStylists from './components/HairStylists/HairStylists';
 
 class App extends Component {
-  hairStylists = [
-    {
-      overall_score: 1,
-      name: "no hope"
-    },
-    {
-      overall_score: 2,
-      name: "no hope"
-    },
-    {
-      overall_score: 3,
-      name: "no hope"
-    }
-  ];
   reviews = [
     {
       title: "Super Great Haircut",
@@ -58,14 +41,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       {
-          this.hairStylists.map( hairStylist => (
-            <HairStylist
-              overallScore={ hairStylist.overall_score }
-              stylistName={ hairStylist.name }
-            />
-          ))
-       }
+        <HairStylists/>
        </div>
     );
   }
