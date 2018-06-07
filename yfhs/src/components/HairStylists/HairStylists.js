@@ -11,14 +11,6 @@ import StylistPage from '../StylistPage/StylistPage';
 class HairStylists extends Component {
 
 
-  sampleReviews = [
-    { overall_score: 1 },
-    { overall_score: 2 },
-    { overall_score: 3 },
-    { overall_score: 4 },
-    { overall_score: 5 }
-  ];
-
 
 
 
@@ -43,15 +35,15 @@ class HairStylists extends Component {
         .then(response => {
           console.log(response)
           var temp = this.state.reviews
-          temp[this.state.hairStylists.findIndex[x => x.id === id]] = response
+          temp[this.state.hairStylists.findIndex[x => x.id === id]] = response.data
           this.setState({
             reviews: temp
           })
         })
 	.catch(response => {
-	console.log(response)
+  console.log(response)  
 })
-      console.log(id)
+      
 
     }
     //there is data
@@ -82,7 +74,7 @@ class HairStylists extends Component {
               <ExpansionPanelDetails>
                 <StylistPage
                   stylistName={hairStylist.name}
-                  stylistRatings={this.sampleReviews}
+                  reviews = {this.state.reviews[hairStylist.id]}
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
