@@ -4,11 +4,13 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StarIcon from '@material-ui/icons/Star';
+import axios from 'axios';
 
 import StylistPage from '../StylistPage/StylistPage';
 
 class HairStylists extends Component {
 
+  
   sampleReviews = [
     { overall_score: 1 },
     { overall_score: 2 },
@@ -17,30 +19,48 @@ class HairStylists extends Component {
     { overall_score: 5 }
   ];
 
-  hairStylists = [
-    {
-      overall_score: 1,
-      name: "Samuel L Jackson"
-    },
-    {
-      overall_score: 2,
-      name: "Kellen E Schmidt"
-    },
-    {
-      overall_score: 3,
-      name: "Duong Nguyen"
+
+    
+
+  state = {
+    hairStylists: this.props.hairStylists,
+    reviews: Array.apply(null, Array(this.props.hairStylists.length)).map(Object.prototype.valueOf,{})
+  };
+
+
+  handleChange = id => (event) => {
+    
+    //no data
+    if(this.state.reviews[this.state.hairStylists.findIndex[x => x.id === id]] !== {}) {
+      //http request to server using id
+      //show loading
+      axios.get('52.32.98.186:8081/worker/workers/'+id)
+      .then(response => {
+        var temp = this.state.reviews
+        temp[this.state.hairStylists.findIndex[x => x.id === id]] = response
+        this.setState({
+          reviews: temp
+        })
+      })
+      console.log(id)
+      
     }
-  ];
+    //there is data
+    else {
+      
+      //do nothing
+    }
+  }
 
   render() {
     return (
       <div id="HairStylist">
         {
-          console.log(this.hairStylists)
+          console.log(this.state.hairStylists)
         }
         {
-          this.hairStylists.map(hairStylist => (
-            <ExpansionPanel key={hairStylist.name}>
+          this.props.hairStylists.map(hairStylist => (
+            <ExpansionPanel key={hairStylist.id} onChange={this.handleChange(hairStylist.id)}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <span className="h2">
                   {hairStylist.name}
@@ -57,17 +77,6 @@ class HairStylists extends Component {
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
-            // <ExpansionPanel>
-            //   <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            //     <Typography>Expansion Panel 1</Typography>
-            //   </ExpansionPanelSummary>
-            //   <ExpansionPanelDetails>
-            //     <Typography>
-            //       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            //       sit amet blandit leo lobortis eget.
-            //     </Typography>
-            //   </ExpansionPanelDetails>
-            // </ExpansionPanel>
           ))
         }
         

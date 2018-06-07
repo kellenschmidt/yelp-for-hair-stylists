@@ -43,8 +43,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MapView />
-        <HairStylists/>
+        <HairStylists
+          hairStylists = {[
+            {
+              name: "Samuel L Jackson",
+              id: "1"
+            },
+            {
+              name: "Kellen E Schmidt",
+              id: "2"
+            },
+            {
+              name: "Duong Nguyen",
+              id: "3"
+            }]}
+        />
       </div>
     );
   }
