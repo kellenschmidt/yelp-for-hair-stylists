@@ -1,14 +1,9 @@
 import React, { Component }  from "react";
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 
 import './StylistPage.css';
 import ReviewList from '../ReviewList/ReviewList';
 
 class StylistPage extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   reviews = [
     {
@@ -54,7 +49,7 @@ class StylistPage extends Component {
   };
 
   render() {
-    const { stylistName, stylistRatings } = this.props;
+    const { stylistName } = this.props;
 
     return (
       <div id="StylistPage">
