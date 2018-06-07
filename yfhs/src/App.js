@@ -4,6 +4,7 @@ import './App.css';
 import MapView from './components/MapView';
 import HairStylists from './components/HairStylists/HairStylists';
 import CreateReview from './components/CreateReview/CreateReview';
+import AddStylist from './components/AddStylist/AddStylist';
 
 class App extends Component {
   reviews = [
@@ -50,6 +51,7 @@ class App extends Component {
           
 
         </div>
+        <AddStylist />
         {/* <CreateReview /> */}
       </div>
     );
