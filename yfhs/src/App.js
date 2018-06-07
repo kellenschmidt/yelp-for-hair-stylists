@@ -13,7 +13,7 @@ class App extends Component {
 
   onMarkerClick(props, marker, e){
     console.log(props.name)
-    axios.get('52.32.98.186:8081/store/'+ props.id)
+    axios.get('52.32.98.186:80/store/'+ props.id)
     .then(response => {
 
         this.setState({ 

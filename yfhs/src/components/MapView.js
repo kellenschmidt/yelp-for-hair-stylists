@@ -14,60 +14,7 @@ class MapView extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     axios.get('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search', {
-    //         params: {
-    //             latitude: '' + latLng.lat,
-    //             longitude: '' + latLng.lng,
-    //             term: 'salon'
-    //         },
-    //         headers: {
-    //             'Authorization': 'bearer _3Y5d_7F2sHNZ6h9fptyc9-pTHFIo6mXI1WT0YsDTpFEjCcaT17_TF13oRGlaLuL10o3SNWUqlgTG3OJGrqsA1kkrCuvzgHWLw9IyWavlfDI3NiOnedfwTJaq_gXW3Yx',
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json',
-    //             'Access-Control-Allow-Headers': '*',
-    //             'Access-Control-Allow-Origin': 'http://localhost:3000'
-    //         }
-    //     })
-    //         .then(response => {
-    //             console.log(response.data.businesses)
 
-    //             let temp =  <Map google={this.props.google} zoom={3}
-    //                 center={{
-    //                     lat: this.props.lat,
-    //                     lng: this.props.lng
-    //                 }}
-    //             >
-                
-    //             { response.data.businesses.map(business => {
-    //                 <Marker
-    //                     position={{lat: business.coordinates.latitude, lng: business.coordinates.longitude}}
-    //                 />
-    //             })
-    //             }   
-                    
-    //             </Map>
-
-    //             this.setState({
-    //                 latitude: latLng.lat,
-    //                 longitude: latLng.lng
-    //             })
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error)
-    //         })
-    // }
-
-    // createMarkers = (businesses) => {
-    //     var newArray = [];
-    //     console.log(businesses);
-    //     businesses.forEach((value, i) => (
-    //         <Marker
-    //             position={{lat:businesses[i].coordinates.latitude, lng:businesses[i].coordinates.longitude}}
-    //         />
-    //     ));
-    //     return newArray;
-    // }
 
     
 
