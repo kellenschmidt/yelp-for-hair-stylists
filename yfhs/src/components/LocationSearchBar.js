@@ -45,7 +45,7 @@ class LocationSearchBar extends Component {
                         <TextField
                             {...getInputProps({
                                 placeholder: 'Search Places ...',
-                                className: 'location-search-input w-100 text-center',
+                                className: 'location-search-input w-100'
                             })}
                         />
                         <div className="autocomplete-dropdown-container">

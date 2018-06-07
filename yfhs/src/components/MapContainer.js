@@ -11,14 +11,6 @@ export class MapContainer extends Component {
                 lng: this.props.lng
             }}
             >
-
-            {
-              this.props.markers.map(business => {
-                <Marker
-                  position= {{lat: business.coordinates.latitude, lng: business.coordinates.longitude}}
-                />
-              })
-            }
     
         </Map>
       );
