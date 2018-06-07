@@ -5,6 +5,16 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class UserReview extends Component {
+  getGenderText = (genderNum) => {
+    if (genderNum === 0) {
+      return "Male";
+    } else if (genderNum === 1) {
+      return "Female";
+    } else {
+      return "Other";
+    }
+  }
+
   render() {
     const { title, description, totalScore, gender, age } = this.props;
 
@@ -19,11 +29,11 @@ class UserReview extends Component {
               {title}
             </Typography>
             <Typography color="textSecondary">
-              {gender}, {age}  
+              {this.getGenderText(gender)}, {age}  
             </Typography>
             <Typography component="p">
-            </Typography>
               {description}
+            </Typography>
           </CardContent>
         </Card>
       </div>
