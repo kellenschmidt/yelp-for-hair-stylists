@@ -16,20 +16,6 @@ class MapView extends Component {
         }
     }
 
-    onMarkerClick = (props, marker, e) => {
-        console.log(props.name)
-    }
-
-    onMouseoverMarker = (props, marker, e) => {
-        console.log(props.name)
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        })
-    }
-
-
     handleNewLocation = (latLng) => {
 
         axios.get('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search', {
@@ -47,6 +33,7 @@ class MapView extends Component {
             }
         })
             .then(response => {
+                console.log(response.data.businesses)
                 this.setState({
                     latitude: latLng.lat,
                     longitude: latLng.lng
@@ -61,97 +48,66 @@ class MapView extends Component {
                     onClick={this.onMapClicked}
                 >
 
-                <MarkerComponent 
-                    business={response.data.businesses[0]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[1]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[2]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[3]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[4]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[5]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[6]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[7]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[8]}
-                />
-                <MarkerComponent 
-                    business={response.data.businesses[9]}
-                />
-                
-                {/* <Marker
-                onClick={this.onMarkerClick}
-                onMouseover={this.onMouseoverMarker}
+                <Marker
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[0].coordinates.latitude, lng:response.data.businesses[0].coordinates.longitude}}
                 name={response.data.businesses[0].name}
+                id={response.data.businesses[0].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[1].coordinates.latitude, lng:response.data.businesses[1].coordinates.longitude}}
                 name={response.data.businesses[1].name}
+                id={response.data.businesses[1].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[2].coordinates.latitude, lng:response.data.businesses[2].coordinates.longitude}}
                 name={response.data.businesses[2].name}
+                id={response.data.businesses[2].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[3].coordinates.latitude, lng:response.data.businesses[3].coordinates.longitude}}
                 name={response.data.businesses[3].name}
+                id={response.data.businesses[3].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[4].coordinates.latitude, lng:response.data.businesses[4].coordinates.longitude}}
                 name={response.data.businesses[4].name}
+                id={response.data.businesses[4].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[5].coordinates.latitude, lng:response.data.businesses[5].coordinates.longitude}}
                 name={response.data.businesses[5].name}
+                id={response.data.businesses[5].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[6].coordinates.latitude, lng:response.data.businesses[6].coordinates.longitude}}
                 name={response.data.businesses[6].name}
+                id={response.data.businesses[6].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[7].coordinates.latitude, lng:response.data.businesses[7].coordinates.longitude}}
                 name={response.data.businesses[7].name}
+                id={response.data.businesses[7].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[8].coordinates.latitude, lng:response.data.businesses[8].coordinates.longitude}}
                 name={response.data.businesses[8].name}
+                id={response.data.businesses[8].id}
                 />
                 <Marker
-                onMouseover={this.onMouseoverMarker}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 position={{lat:response.data.businesses[9].coordinates.latitude, lng:response.data.businesses[9].coordinates.longitude}}
                 name={response.data.businesses[9].name}
-                /> */}
+                id={response.data.businesses[9].id}
+                />
                 
                 </Map> 
                 );
