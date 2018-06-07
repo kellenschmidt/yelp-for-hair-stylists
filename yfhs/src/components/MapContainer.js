@@ -5,7 +5,7 @@ export class MapContainer extends Component {
 
     render() {
       return (
-        <Map google={window.google} zoom={14}
+        <Map google={this.props.google} zoom={14}
             center={{
                 lat: this.props.lat,
                 lng: this.props.lng
