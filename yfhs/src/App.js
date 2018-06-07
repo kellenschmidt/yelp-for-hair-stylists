@@ -46,10 +46,11 @@ class App extends Component {
       <div>
         <div>
           <MapView />
+          <HairStylists />
+          
 
         </div>
-        {/* <HairStylists />
-        <CreateReview /> */}
+        {/* <CreateReview /> */}
       </div>
     );
   }

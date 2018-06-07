@@ -128,7 +128,7 @@ class ReviewList extends Component {
               <UserReview
                 title={review.title}
                 description={review.description}
-                totalScore={review.totalScore}
+                totalScore={review.overall_score}
                 gender={review.gender}
                 age={review.age}
                 key={review.description}
