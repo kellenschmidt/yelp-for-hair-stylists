@@ -35,7 +35,7 @@ class HairStylists extends Component {
       //http request to server using id
       //show loading
 
-      axios.get('127.0.0.1:8000/worker/' + id, {
+      axios.get('http://127.0.0.1:8000/worker/' + id+'/', {
         params: {
           format: "json"
         }
@@ -48,6 +48,9 @@ class HairStylists extends Component {
             reviews: temp
           })
         })
+	.catch(response => {
+	console.log(response)
+})
       console.log(id)
 
     }
