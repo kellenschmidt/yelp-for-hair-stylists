@@ -5,14 +5,6 @@ import StylistPage from './components/StylistPage/StylistPage';
 import HairStylist from './components/HairStylist/HairStylist';
 
 class App extends Component {
-  sampleReviews = [
-    { overall_score: 1 },
-    { overall_score: 2 },
-    { overall_score: 3 },
-    { overall_score: 4 },
-    { overall_score: 5 }
-  ];
-
   hairStylists = [
     {
       overall_score: 1,
