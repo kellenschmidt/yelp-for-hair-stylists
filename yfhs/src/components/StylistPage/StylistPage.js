@@ -22,9 +22,7 @@ class StylistPage extends Component {
 
     return (
       <div id="StylistPage">
-        <h5 id="StylistName" className="display-5">Details for { stylistName }:</h5>
-        <Typography>Overall Rating: {this.overall_score(stylistRatings)}</Typography>
-        <h8 id="UserRatingsTitle" className="display-8">User Ratings</h8>
+        <h5 id="StylistName" className="display-5">Reviews for { stylistName }:</h5>
         <div>
         </div>
       </div>
