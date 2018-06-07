@@ -40,7 +40,7 @@ class App extends Component {
   ];
 
   render() {
-    return {
+    return (
       <div>
         <MapView />
         <HairStylists/>
