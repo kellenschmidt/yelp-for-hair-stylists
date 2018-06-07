@@ -1,25 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
-import StylistPage from './components/StylistPage/StylistPage';
-import HairStylist from './components/HairStylist/HairStylist';
-import CreateReview from './components/CreateReview/CreateReview';
-import ReviewList from './components/ReviewList/ReviewList';
+import React, { Component }  from "react";
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
-class App extends Component {
-  hairStylists = [
-    {
-      overall_score: 1,
-      name: "no hope"
-    },
-    {
-      overall_score: 2,
-      name: "no hope"
-    },
-    {
-      overall_score: 3,
-      name: "no hope"
-    }
-  ];
+import './StylistPage.css';
+import ReviewList from '../ReviewList/ReviewList';
+
+class StylistPage extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   reviews = [
     {
       title: "Super Great Haircut",
@@ -55,20 +45,28 @@ class App extends Component {
     },
   ];
 
+  overall_score = (userReviews) => {
+    let avgScore = 0;
+    for (let review of userReviews) {
+      avgScore += review.overall_score;
+    }
+    return avgScore / userReviews.length;
+  };
+
   render() {
+    const { stylistName, stylistRatings } = this.props;
+
     return (
-      <div>
-       {
-          this.hairStylists.map( hairStylist => (
-            <HairStylist
-              overallScore={ hairStylist.overall_score }
-              stylistName={ hairStylist.name }
-            />
-          ))
-       }
-       </div>
+      <div id="StylistPage">
+        <h5 id="StylistName" className="display-5">Reviews for { stylistName }:</h5>
+        <ReviewList
+          reviews={ this.reviews }
+        />
+      </div>
     );
+
   }
+
 }
 
-export default App;
+export default StylistPage;

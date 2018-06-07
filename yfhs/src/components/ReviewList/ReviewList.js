@@ -6,8 +6,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/lab/Slider'
-import FilterListIcon from '@material-ui/icons/FilterList'
+import Slider from '@material-ui/lab/Slider';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import IconButton from '@material-ui/core/IconButton';
 
 import './ReviewList.css';
