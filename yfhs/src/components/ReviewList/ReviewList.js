@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UserReview from '../UserReview/UserReview';
 
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -59,8 +58,8 @@ class ReviewList extends Component {
     return newArray;
   }
 
-  filterReviews = () => {
-    var filteredObjects = this.getObjectsByKey(this.props.reviews, "gender", this.state.gender);
+  filterReviews = (reviewsArray) => {
+    var filteredObjects = this.getObjectsByKey(reviewsArray, "gender", this.state.gender);
     filteredObjects = this.getObjectsByKey(filteredObjects, "style", this.state.style);
     filteredObjects = this.getObjectsGtKey(filteredObjects, "overall_score", this.state.minScore);
     return filteredObjects;
@@ -68,6 +67,7 @@ class ReviewList extends Component {
 
   render() {
     const { reviews } = this.props;
+    let filteredReviews = this.filterReviews(reviews);
 
     return (
       <div>
@@ -116,22 +116,28 @@ class ReviewList extends Component {
                 </Select>
               </FormControl>
               <Typography id="label">{this.state.minScore}</Typography>
-              <Slider value={this.state.minScore} min={0} max={5} step={0.1} oaria-labelledby="label" onChange={this.handleChangeMinScore} />
+              <Slider value={this.state.minScore} min={0} max={5} step={0.1} aria-labelledby="label" onChange={this.handleChangeMinScore} />
             </form>
           )
           : "" 
         }
         {
-          this.filterReviews().map(review => (
-            <UserReview
-              title={review.title}
-              description={review.description}
-              totalScore={review.totalScore}
-              gender={review.gender}
-              age={review.age}
-              key={review.description}
-            />
-          ))
+          filteredReviews.length > 0 ?
+          (
+            filteredReviews.map(review => (
+              <UserReview
+                title={review.title}
+                description={review.description}
+                totalScore={review.totalScore}
+                gender={review.gender}
+                age={review.age}
+                key={review.description}
+              />
+            ))
+          )
+            : (
+              <span>No reviews</span>
+          )
         }
       </div>
     );
