@@ -131,6 +131,7 @@ class ReviewList extends Component {
                 totalScore={review.overall_score}
                 gender={review.gender}
                 age={review.age}
+                style={review.style}
                 key={review.description}
               />
             ))

@@ -15,8 +15,29 @@ class UserReview extends Component {
     }
   }
 
+  getStyle = (styleNum) => {
+    switch (styleNum){
+
+      case 0:
+        return "Long Straight";
+
+      case 1:
+        return "Long Curly";
+
+      case 2:
+        return "Short";
+
+      case 3:
+        return "Fade";
+
+      case 4:
+        return "Afro";
+
+    }
+  }
+
   render() {
-    const { title, description, totalScore, gender, age } = this.props;
+    const { title, description, totalScore, gender, age, style } = this.props;
 
     return (
       <div>
@@ -29,7 +50,7 @@ class UserReview extends Component {
               {title}
             </Typography>
             <Typography color="textSecondary">
-              {this.getGenderText(gender)}, {age}  
+              {this.getGenderText(gender)}, {age}, {this.getStyle(style)}
             </Typography>
             <Typography component="p">
               {description}
