@@ -27,7 +27,7 @@ class HairStylists extends Component {
       //http request to server using id
       //show loading
 
-      axios.get('http://127.0.0.1:8000/worker/' + id+'/', {
+      axios.get('http://127.0.0.1:8000/worker/' + id + '/', {
         params: {
           format: "json"
         }
@@ -40,10 +40,10 @@ class HairStylists extends Component {
             reviews: temp
           })
         })
-	.catch(response => {
-  console.log(response)  
-})
-      
+        .catch(response => {
+          console.log(response)
+        })
+
 
     }
     //there is data
@@ -67,14 +67,23 @@ class HairStylists extends Component {
                   {hairStylist.name}
                 </span>
                 <span className="h2 ml-auto">
-                  {hairStylist.overall_score}/5
+                  {() => {
+                    let reviews = this.state.reviews[this.state.hairStylists.findIndex[x => x.id === hairStylist.id]];
+                    let totalScore = 0;
+                    for(let review in reviews) {
+                      totalScore += review.satisfaction
+                      
+                    }
+                    return (totalScore / reviews.length)
+                    }
+                  } /5
                   <StarIcon></StarIcon>
                 </span>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <StylistPage
                   stylistName={hairStylist.name}
-                  reviews = {this.state.reviews[hairStylist.id]}
+                  reviews={this.state.reviews[hairStylist.id]}
                 />
               </ExpansionPanelDetails>
             </ExpansionPanel>
